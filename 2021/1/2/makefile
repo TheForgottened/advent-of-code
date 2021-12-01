@@ -7,11 +7,11 @@ STACK := -fstack-protector-all -Wstack-protector
 # Specifies to GCC the required warnings
 WARNS := -Wall -Wextra -pedantic # -pedantic warns on language standards
 
-# Debug flags (add to CFLAGS if you wish to compile the program for debug porpuses)
+# Debug flags
 DEBUG := -g -fsanitize=address 
 
 # Flags for compiling
-CFLAGS := -O3 $(STACK) $(WARNS) $(DEBUG)
+CFLAGS := -O3 $(STACK) $(WARNS)
 
 # Source code file extension
 SRCEXT := c
@@ -31,13 +31,18 @@ default: all
 
 # Help message
 help:
-	@echo "Advent of Code 2021 - day 1, part 1"
+	@echo "Advent of Code 2021 - day 1, part 2"
 	@echo "    all		- Compiles and generates binary files"
 	@echo "    clean    - Clean the project by removing binaries"
 	@echo "    help     - Prints a help message with target rules"
 
 all: $(OBJECTS)
 	$(CC) -o $(BINARY) $+ $(CFLAGS) $(LIBS)
+	@echo -en "\n--\nBinary file placed at $(BINARY)\n"
+
+# Rule to compile with debug flags
+debug: $(OBJECTS)
+	$(CC) -o $(BINARY) $+ $(CFLAGS) $(DEBUG) $(LIBS)
 	@echo -en "\n--\nBinary file placed at $(BINARY)\n"
 
 %.o: %.$(SRCEXT)
