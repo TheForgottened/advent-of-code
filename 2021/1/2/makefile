@@ -11,7 +11,9 @@ WARNS := -Wall -Wextra -pedantic # -pedantic warns on language standards
 DEBUG := -g -fsanitize=address 
 
 # Flags for compiling
-CFLAGS := -O3 $(STACK) $(WARNS) $(DEBUG)
+CFLAGS := -O3 
+
+CFLAGS_DEBUG := $(STACK) $(WARNS) $(DEBUG)
 
 # Source code file extension
 SRCEXT := c
@@ -31,13 +33,17 @@ default: all
 
 # Help message
 help:
-	@echo "Advent of Code 2021 - day 1, part 1"
+	@echo "Advent of Code 2021 - day 1, part 2"
 	@echo "    all		- Compiles and generates binary files"
 	@echo "    clean    - Clean the project by removing binaries"
 	@echo "    help     - Prints a help message with target rules"
 
 all: $(OBJECTS)
 	$(CC) -o $(BINARY) $+ $(CFLAGS) $(LIBS)
+	@echo -en "\n--\nBinary file placed at $(BINARY)\n"
+
+debug: $(OBJECTS)
+	$(CC) $ -o $(BINARY) $+ $(CFLAGS) $(CFLAGS_DEBUG) $(LIBS)
 	@echo -en "\n--\nBinary file placed at $(BINARY)\n"
 
 %.o: %.$(SRCEXT)
