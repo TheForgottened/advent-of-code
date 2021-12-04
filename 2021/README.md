@@ -1,13 +1,11 @@
-```c
-#ifndef ADVENT_OF_CODE_2021_H
-#define ADVENT_OF_CODE_2021_H
+```python
+YEAR = 2021
 
-#define YEAR 2021
-
-char* wishes() { return "Merry Christmas and a Happy 2022!"; };
-
-#endif /* ADVENT_OF_CODE_2021_H */
+def wishes():
+    return "Merry Christmas and a Happy 2022!"
 ```
+
+I started this year's challenge in C but, due to lack of time, I decided to switch to Python. This way I am able to learn a new language and not abandon the challenge like I forced myself to do last year.
 
 ---
 
