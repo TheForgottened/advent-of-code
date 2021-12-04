@@ -27,13 +27,8 @@ def get_board_score(board, drawn_numbers):
         if (flag == True): break
 
     if (flag == True):
-        score = 0
-        for k in range(side_size):                
-            line = board[k * side_size: (k * side_size) + side_size]
-            fixed_line = [0 if n in drawn_numbers else n for n in line]
-            score += sum(fixed_line)
-
-        return score * drawn_numbers[-1]
+        fixed_board =  [0 if n in drawn_numbers else n for n in board]       
+        return sum(fixed_board) * drawn_numbers[-1]
 
     return -1
 
