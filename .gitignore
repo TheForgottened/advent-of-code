@@ -4,3 +4,6 @@
 
 # Object Files
 *.o
+
+# VS Code Configuration
+.vscode
